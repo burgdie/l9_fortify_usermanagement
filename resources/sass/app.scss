@@ -1,1 +1,9 @@
+
+//Import Sass Partials from 5 sass folders
+@import "./abstracts/variables";
+@import "./base/base";
+@import "customize";
+
 @import "~bootstrap/scss/bootstrap";
+
+
