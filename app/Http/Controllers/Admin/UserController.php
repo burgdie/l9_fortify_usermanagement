@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
@@ -14,7 +15,18 @@ class UserController extends Controller
      */
     public function index()
     {
-        dd('index method on user controller');
+        //Get all the users
+        //$users = User::all();
+        // return view('admin.users.index')
+        //     ->with([
+        //         //'users' => $users
+        //         'users'=> User::all()
+        // ]);
+
+        return view('admin.users.index', ['users'=> User::all()]);
+
+
+
     }
 
     /**

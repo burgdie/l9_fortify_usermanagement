@@ -1,18 +1,4 @@
 @charset "UTF-8";
-body {
-  background-color: #f7f8f9;
-  color: #3a3c42;
-}
-
-.navbar {
-  background-color: #1E2632;
-  box-shadow: 0 5px 10px 0 rgba(204, 204, 204, 0.3);
-  margin-bottom: 40px;
-}
-.navbar a {
-  color: #fff;
-}
-
 /*!
  * Bootstrap  v5.2.0 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
@@ -10916,4 +10902,26 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+body {
+  background-color: #f7f8f9;
+  color: #3a3c42;
+}
+
+.navbar {
+  background-color: #1E2632;
+  box-shadow: 0 5px 10px 0 rgba(204, 204, 204, 0.3);
+  margin-bottom: 40px;
+}
+.navbar a {
+  color: #fff;
+}
+
+h1, .h1 {
+  margin-bottom: 30px;
+}
+
+.card {
+  box-shadow: 0 2px 4px rgba(204, 204, 204, 0.8);
+  padding: 20px, 40px;
 }
