@@ -12,7 +12,7 @@
 </div>
 
 
-    <div class="card">
+    <div class="card shadow  p-4">
         <table class="table">
             <thead>
               <tr>
