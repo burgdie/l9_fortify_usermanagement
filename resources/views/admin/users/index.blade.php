@@ -34,9 +34,9 @@
                             </a>
 
                             <button type="button" class="btn btn-sm btn-danger"
-                                onClick="event.prventDefault();
+                                onClick="event.preventDefault();
                                 document.getElementById('delete-user-form-{{ $user->id }}').submit()">
-                            >
+
                                 Delete
                             </button>
                             <form id="delete-user-form-{{ $user->id }}" action="{{ route('admin.users.destroy', $user->id) }}" method="POST" sstyle="display: none;">
@@ -52,5 +52,6 @@
 
             </tbody>
           </table>
+          {{ $users->links() }}
     </div>
 @endsection
