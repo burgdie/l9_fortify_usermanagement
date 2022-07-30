@@ -70,7 +70,8 @@
         </nav>
 
        <main class="container">
-        @yield('content')
+            @include('partials.alerts')
+            @yield('content')
        </main>
     </body>
 </html>
