@@ -31,6 +31,6 @@ Route::get('/', function () {
  */
 
  // Admin Part
-Route::prefix('admin')->name('admin.')->group(function() {
+Route::prefix('admin')->middleware('auth')->name('admin.')->group(function() {
     Route::resource('/users', UserController::class);
 });

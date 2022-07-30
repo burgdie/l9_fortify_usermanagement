@@ -17,6 +17,7 @@
 
     </head>
     <body >
+        {{--  start Navbar 1 --}}
         <nav class="navbar navbar-expand-lg">
 
             <div class="container">
@@ -25,17 +26,6 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
 
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.users.index') }}">Users</a>
-                  </li>
-
-
-                </ul>
                 <div class="form-inline my-2 m-lg-0">
                     @if (Route::has('login'))
                     <div>
@@ -65,9 +55,32 @@
                     </div>
                 @endif
                 </div>
-              </div>
+
             </div>
         </nav>
+        {{--  end Navbar 1 --}}
+
+         {{--  start Navbar 2 --}}
+         @can('logged-in')
+         <nav class="navbar sub-nav navbar-expand-lg">
+
+            <div class="container">
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.users.index') }}">Users</a>
+                    </li>
+                    </ul>
+               </div>
+            </div>
+         </nav>
+         @endcan
+           {{--  end Navbar 2 --}}
+
 
        <main class="container">
             @include('partials.alerts')

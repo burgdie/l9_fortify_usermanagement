@@ -1,9 +1,11 @@
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
-//Import Sass Partials from 5 sass folders
+
 @import "./abstracts/variables";
 @import "./base/base";
 @import "customize";
 @import "./components/card";
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+//Import Sass Partials from 5 sass folders
 
 
 

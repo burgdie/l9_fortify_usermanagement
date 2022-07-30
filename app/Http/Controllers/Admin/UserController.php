@@ -6,6 +6,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\StoreUserRequest;
 
 class UserController extends Controller
@@ -25,6 +26,12 @@ class UserController extends Controller
         //         'users'=> User::all()
         // ]);
 
+        // Check if it is a logged in user who wants to access the user table
+
+        if(Gate::denies('logged-in')){
+            dd('no access');
+
+        }
         return view('admin.users.index', ['users'=> User::paginate(10)]);
 
 
