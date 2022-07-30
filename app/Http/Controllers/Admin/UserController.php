@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
+use App\Actions\Fortify\CreateNewUser;
 use App\Http\Requests\StoreUserRequest;
 
 class UserController extends Controller
@@ -60,10 +61,20 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         // Validation of User data
-        $validatedData = $request->validated();
+        //Staement below replaced by Fortify CreateNewUser
+        //$validatedData = $request->validated();
 
         // $user = User::create($request->except(['_token', 'roles']));
-        $user = User::create($validatedData);
+        //$user = User::create($validatedData);
+
+        $newUser = new CreateNewUser();
+        $user = $newUser->create($request->only([
+            'name',
+            'email',
+            'password',
+            'password_confirmation'
+        ]));
+
         $user->roles()->sync($request->roles);
 
         $request->session()->flash('success', 'You have created the user successful');
