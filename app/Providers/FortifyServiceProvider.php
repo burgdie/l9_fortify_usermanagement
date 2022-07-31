@@ -40,10 +40,23 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::registerView(function(){
             return view('auth.register');
         });
-        
+
         // Add Login View for user to login
         Fortify::loginView(function(){
             return view('auth.login');
+        });
+
+         /**
+         *The way the password reset works in Laravel is it'll create a random
+         *token and it email thet token and url back to the user
+         *and then when the user clicks that url it is going to come back *into application it'sgoing to go to this view
+         *and then inside of this view we need to pick up that token
+         *and pass it over when we do the password reset
+         *
+         */
+        Fortify::resetPasswordView(function ($request) {
+            return view('auth.reset-password', ['request' => $request]);
+
         });
 
         RateLimiter::for('login', function (Request $request) {
@@ -51,6 +64,7 @@ class FortifyServiceProvider extends ServiceProvider
 
             return Limit::perMinute(5)->by($email.$request->ip());
         });
+
 
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));

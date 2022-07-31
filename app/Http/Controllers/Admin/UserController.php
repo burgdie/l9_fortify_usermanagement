@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
 use App\Actions\Fortify\CreateNewUser;
 use App\Http\Requests\StoreUserRequest;
+use Illuminate\Support\Facades\Password;
 
 class UserController extends Controller
 {
@@ -76,6 +77,9 @@ class UserController extends Controller
         ]));
 
         $user->roles()->sync($request->roles);
+
+        // send this user a passwordreset link
+        Password::sendResetLink($request->only(['email']));
 
         $request->session()->flash('success', 'You have created the user successful');
 
